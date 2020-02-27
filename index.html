@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
   <head>
     <title>
@@ -23,7 +18,6 @@
       <!-- Intro -->
       <div id="intro">
         <h1>Inteligencia Artificial para Videojuegos</h1>
-        <h1>FALTA TERMINAR MEMORIA, BOTONES DE HUD Y MERODEO.</h1>
         <p>
           Página dedicada a albergar las prácticas del grupo 2 para la
           asignatura de Inteligencia Artificial para Videojuegos de la UCM.
@@ -36,7 +30,9 @@
           <li class="active"><a href="index.html">Práctica 1</a></li>
 
           <li><a href="generic.html">Práctica 2</a></li>
+          <!-- 
           <li><a href="elements.html">Práctica 3</a></li>
+          -->
         </ul>
         <ul class="icons">
           <li>
@@ -148,7 +144,69 @@
               </tbody>
             </table>
           </div>
+          <h3>Notas de la implementación.</h3>
+          <p>
+            El primer paso que dimos para la implementación de este prototipo
+            fue el cambio del movimiento ya que todo era movido con fuerzas y
+            para el movimiento de un personaje nos parecía mejor usar un
+            movimiento más suave que no fuese incrementando con una aceleración.
+            Además de esto, hemos separado para que sea más específico tanto el
+            comportamiento del <strong>Perro</strong> como de la
+            <strong>Rata</strong> para que ambos comportamientos sean hijos de
+            la clase <strong>Agente</strong>.
+          </p>
+          <p>
+            En cuanto al Input del usuario, la parte que hemos tenido que añadir
+            es el funcionamiento de la tecla <i>Espacio</i>. Ya que todos los
+            agentes del juegos tienen que hacer alguna acción con la pulsación
+            del Espacio, cada tipo de Agente tiene una redefinición del
+            comportamiento que tiene que realizar cuando ocurre esta acción.
+          </p>
 
+          <code>
+            if(Input.GetKeyUp("space")) { foreach (Agente a in agentes) {
+            a.ToggleFlauta(); } }
+          </code>
+          <p>
+            Una vez las ratas llegan al jugador, estas para no estar totalmente
+            juntas se colocan ellas solas para formar una formación alrededor
+            del jugador cuando este no se mueve. Para ello, hemos usado 8
+            <strong>Raycast</strong>. Cada uno de estos Raycast cubre las 8
+            direcciones (Separadas 45º una de la otra) y si estos chocan con
+            tanto una rata como con el jugador, se separan una unidad.
+          </p>
+          <span class="image fit"><img src="images/pic01.jpg" alt=""/></span>
+          <pre><code>for(int i = 0; i < 8; i++)
+            {
+                if (Physics.Raycast(transform.position, (Quaternion.AngleAxis(angle, Vector3.up) * transform.forward), out hitInfo, raydistance))
+                {
+
+                    if (hitInfo.collider.tag == "rata" || hitInfo.collider.tag == "Player")
+                    {
+                        direccion.lineal += (Quaternion.AngleAxis(angle, Vector3.up) * transform.forward) * -1;
+                    }
+                }
+                angle += 45;
+            }
+            </code></pre>
+          <h3>Referencias</h3>
+          <ul>
+            <li>
+              <a
+                href="https://docs.unity3d.com/ScriptReference/Input.GetKey.html"
+                >Input.GetKey</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://docs.unity3d.com/ScriptReference/Physics.Raycast.html"
+                >Physics.Raycast</a
+              >
+              para la formación de los agentes y el esquive de objetos al
+              seguir.
+            </li>
+            <li>...</li>
+          </ul>
           <ul class="actions special">
             <li>
               <a href="#" class="button icon solid fa-download"
