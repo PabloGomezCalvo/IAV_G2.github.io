@@ -21,6 +21,14 @@
         <p>
           Página dedicada a albergar las prácticas del grupo 2 para la
           asignatura de Inteligencia Artificial para Videojuegos de la UCM.
+          <br />
+          Pablo Gómez Calvo
+          <br />
+          Sergio Juan Higuera Velasco
+          <br />
+          Francisco Solano López Bleda De Castro
+          <br />
+          Andrés Puente Rodríguez
         </p>
       </div>
 
@@ -93,7 +101,7 @@
             generación de un nuevo pueblo y la salida del juego.
           </p>
 
-          <span class="image fit"><img src="images/pic01.jpg" alt=""/></span>
+          <span class="image fit"><img src="images/Gif3.gif" alt=""/></span>
 
           <h3>Controles</h3>
           <p>
@@ -167,6 +175,7 @@
             if(Input.GetKeyUp("space")) { foreach (Agente a in agentes) {
             a.ToggleFlauta(); } }
           </code>
+          <span class="image fit"><img src="images/Gif2.gif" alt=""/></span>
           <p>
             Una vez las ratas llegan al jugador, estas para no estar totalmente
             juntas se colocan ellas solas para formar una formación alrededor
@@ -175,7 +184,7 @@
             direcciones (Separadas 45º una de la otra) y si estos chocan con
             tanto una rata como con el jugador, se separan una unidad.
           </p>
-          <span class="image fit"><img src="images/pic01.jpg" alt=""/></span>
+          <span class="image fit"><img src="images/Gif1.gif" alt=""/></span>
           <pre><code>for(int i = 0; i < 8; i++)
             {
                 if (Physics.Raycast(transform.position, (Quaternion.AngleAxis(angle, Vector3.up) * transform.forward), out hitInfo, raydistance))
@@ -187,6 +196,67 @@
                     }
                 }
                 angle += 45;
+            }
+            </code></pre>
+          <p>
+            Una vez se empieza el juego, las ratas tienes un estado de merodeo
+            por el pueblo, esto se ha conseguido eligiendo en cada momento un
+            valor aleatorio en un intervalo y normalizandolo. Para que este
+            cambio sea más pronunciado ese valor es triplicado. Esto crea un
+            efecto paseo pero no como el de un humano sino como el de un animal
+            deshorientado y que no lleva un rumbo fijo.
+          </p>
+          <code
+            >direccion.lineal = Quaternion.AngleAxis( Random.Range(-desviacion,
+            desviacion), Vector3.up) * agente.velocidad.normalized*3;</code
+          >
+          <p>
+            Por último, con los comportamientos de estos agentes interfieren
+            obstáculos que hay por el mapa. Para evitar estos obstáculos hemos
+            optado por el uso de 3 Raycast. El primero irá en la dirección en la
+            que se está moviendo el Agente y en caso de que este rayo atraviese
+            un obstáculo, lanzamos 2 rayos más.
+            <br />
+            Estos rayos se lanzan en 15º y -15º con respecto a la dirección del
+            Agente. Si los 2 rayos impactan en un obstáculo, el Agente girará en
+            la dirección del rayo que haya impactado con un objeto más lejando.
+            Con esto logramos hacer que en la gran cantidad de casos, se esquive
+            el objeto que se tiene más cerca. En caso que el que colisione con
+            un obstáculo sea solamente un rayo, el Agente girará 90º en la
+            dirección opuesta a ese rayo.
+          </p>
+          <pre><code>if (Physics.Raycast(transform.position, (Quaternion.AngleAxis(0, Vector3.up) * agente.velocidad.normalized), out FronthitInfo, rayDistance))
+            {
+                // Se comprueba si el RayCast aha colisionado en un objeto con el tag de obstaculos
+                if (FronthitInfo.collider.tag == "obstaculos")
+                {
+                     Debug.DrawRay(transform.position, agente.velocidad.normalized * rayDistance, Color.white);
+                     RaycastHit LhitInfo;
+                     RaycastHit RhitInfo;
+                    bool hitL = Physics.Raycast(transform.position, (Quaternion.AngleAxis(15, Vector3.up) * agente.velocidad.normalized), out LhitInfo, rayDistance,8);
+                    bool hitR =Physics.Raycast(transform.position, (Quaternion.AngleAxis(-15, Vector3.up) * agente.velocidad.normalized), out RhitInfo, rayDistance,8);
+                    // Si ambos rayos laterales chocan comprueba cual de los dos se encuentra mas cerca y va en direccion opuesta a el.
+                    if(hitL && hitR){
+                        if(LhitInfo.distance > RhitInfo.distance){
+                         direccion.lineal = (Quaternion.AngleAxis(90, Vector3.up) * agente.velocidad.normalized);
+                        }
+                        else{
+                         direccion.lineal = (Quaternion.AngleAxis(-90, Vector3.up) * agente.velocidad.normalized);
+
+                        }
+                    }
+                    // Si choca el izq va hacia la der
+                    else if (hitL){
+                         direccion.lineal = (Quaternion.AngleAxis(90, Vector3.up) * agente.velocidad.normalized);
+                    }
+                    // Si choca el der va hacia la izq
+                    else{
+                         direccion.lineal = (Quaternion.AngleAxis(-90, Vector3.up) * agente.velocidad.normalized);
+
+                    }
+                    
+                }
+                
             }
             </code></pre>
           <h3>Referencias</h3>
@@ -205,7 +275,22 @@
               para la formación de los agentes y el esquive de objetos al
               seguir.
             </li>
-            <li>...</li>
+            <li>
+              <a
+                href="https://docs.unity3d.com/ScriptReference/Quaternion.AngleAxis.html"
+                >Quaternion.AngleAxis
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.StartCoroutine.html"
+                >MonoBehaviour.StartCoroutine
+              </a>
+            </li>
+            <li>
+              Millington, I.: Artificial Intelligence for Games. CRC Press, 3rd
+              Edition (2019)
+            </li>
           </ul>
           <ul class="actions special">
             <li>
