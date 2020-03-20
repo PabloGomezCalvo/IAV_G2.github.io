@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>      
-		Inteligencia Artificial para Videojuegos.
-	</title>
+    <title>
+      Inteligencia Artificial para Videojuegos.
+    </title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -14,13 +14,21 @@
   </head>
   <body class="is-preload">
     <!-- Wrapper -->
-    <div id="wrapper">
-      <!-- Header -->
+    <div id="wrapper" class="fade-in">
+      <!-- Intro -->
       <div id="intro">
         <h1>Inteligencia Artificial para Videojuegos</h1>
         <p>
           Página dedicada a albergar las prácticas del grupo 2 para la
           asignatura de Inteligencia Artificial para Videojuegos de la UCM.
+          <br />
+          Pablo Gómez Calvo
+          <br />
+          Sergio Juan Higuera Velasco
+          <br />
+          Francisco Solano López Bleda De Castro
+          <br />
+          Andrés Puente Rodríguez
         </p>
       </div>
 
@@ -52,20 +60,142 @@
           <header class="major">
             <h2>
               Práctica 2:
+              <br />
+              El hilo de Ariadna
             </h2>
-           
+            <p>
+              En este apartado se explica el funcionamiento de la práctica junto
+              con algunas pruebas realizadas a lo largo del desarrollo y los
+              algoritmos usados. Junto con las decisiones tomadas para la
+              implementación de algoritmos.
+            </p>
+          </header>
+          <h3>Memoria técnica del prototipo</h3>
+          <p>
+            En esta ocasión, la práctica tiene como propósito la búsqueda de
+            caminos con algoritmos como el A*, Dijkstra, BFS y DFS. En est
+            práctica el jugador tiene que controlar a Teseo para escapar los
+            laberinto del Minotauro en el que se encuentra atrapado. Para
+            conseguirlo, tiene la ayuda de Ariadna que es capaz de crear un hilo
+            blanco que le muestra al jugador el camino que tiene quye seguir
+            para salir del laberinto.
+          </p>
+          <h3>Interfaz de Usuario</h3>
+          <p>
+            Al inicio del prototipo se genrará un laberinto de manera procedural
+            con las posiciones de salida del jugador y del minotauro también
+            aleatorias. Se ha incluido un botón para poder crear pueblos
+            aleatorios tanto para hacer todas las pruebas que se quiera como
+            para ver las diferentes posibilidades que se ofrecen en esta
+            práctica.
+          </p>
+
+          <h3>Controles</h3>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Acción</th>
+                  <th>Descripción</th>
+                  <th>Botón 1</th>
+                  <th>Botón 2</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Suavizar</td>
+                  <td>Suavizar el camino generado para el hilo de Ariadna</td>
+                  <td>S</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>Hilo de Ariadna</td>
+                  <td>Activar hilo de Ariadna.</td>
+                  <td>Barra Espaciadora</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>Arriba</td>
+                  <td>Movimiento vertical hacia arriba.</td>
+                  <td>W</td>
+                  <td>Flecha Arriba</td>
+                </tr>
+                <tr>
+                  <td>Abajo</td>
+                  <td>Movimiento vertical hacia abajo.</td>
+                  <td>S</td>
+                  <td>Flecha Abajo</td>
+                </tr>
+                <tr>
+                  <td>Derecha</td>
+                  <td>Movimiento horizontal hacia derecha.</td>
+                  <td>D</td>
+                  <td>Flecha Derecha</td>
+                </tr>
+                <tr>
+                  <td>Izquierda</td>
+                  <td>Movimiento horizontal hacia izquierda.</td>
+                  <td>A</td>
+                  <td>Flecha Izquierda</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Notas de la implementación.</h3>
+          <p>
+            Por desgracia de la situación en la que se ha producido esta
+            práctica, gran parte de lo que está contado es lo que nos habría
+            gustado entregar pero el no poder unir las piezas dadas y no poder
+            realizar una consulta de dudas, unido a la incapacidad de dar
+            explicaciones en los laboratiorios, nos ha sido imposible llevar
+            este desarrollo con éxito. La idea y el planteamiento de esta
+            práctica nos parece muy interesante ya que ver código ya hecho y
+            tener que adecuarnos a una estructura ya definida es de los últimos
+            pasos que tiene que dar un futuro desarrollador. Es por esto que
+            aunque esta entrega es algo de lo que no nos sentimos orgullosos,
+            una vez podamos volver a los laboratorios nos esforzaremos en
+            terminar y en dejar los conceptos y las dudas claras para unir este
+            proyecto al repertorio de pruebas sobre lo que hemos estudiado en el
+            grado.
+            <br />
+            El problema principal ha sido a la hora de crear el mapa y unirlo
+            posteriormente al BFS y DFS que ya están definidos. Estas
+            implementaciones piden un ID de baldosa pero no sabemos si este ID
+            se da antes o después de la creación del mapa. La solución para esto
+            es modificar nuestra creación de un mapa aleatorio y para adecuarlo
+            a la estructura del proyecto base.
+          </p>
+          <h3>Referencias</h3>
+          <ul>
+            <li>
+              <a
+                href="https://github.com/PacktPublishing/Unity-2018-Artificial-Intelligence-Cookbook-Second-Edition"
+                >Unity 2018 Artificial Intelligence Cookbook, Second
+                Edition(Repositorio)</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/PacktPublishing/Unity-Artificial-Intelligence-Programming-Fourth-Edition"
+                >Unity Artificial Intelligence Programming, Fourth
+                Edition(Repositorio)</a
+              >
+            </li>
+            <li>
+              Millington, I.: Artificial Intelligence for Games. CRC Press, 3rd
+              Edition (2019)
+            </li>
+          </ul>
           <ul class="actions special">
             <li>
-              <a href="#" class="button icon solid fa-download"
-                >Descargar EXE</a
-              >
+              <a href="" class="button icon solid fa-download">Descargar EXE</a>
             </li>
           </ul>
         </article>
-	  </div>
-	  <!-- Copyright -->
+      </div>
+
+      <!-- Copyright -->
       <div id="copyright"></div>
-    </div>
     </div>
 
     <!-- Scripts -->
