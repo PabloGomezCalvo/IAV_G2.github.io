@@ -181,8 +181,28 @@
           </div>
           <h3>Notas de la implementación.</h3>
           <p>
-            HAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHA HAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHA
-           
+            Para la implementación de esta práctica hemos cogido el diseño del mapa del enunciado y lo hemos transformado en una serie de habitaciones conectadas.
+            La habitación central donde se encuentra la cantante (Agente de color verde) es el escenario que tiene al público con las lámparas sobre sus cabezas. 
+            En la sala de la derecha se encuentra el Vizconde (Agente Amarillo) y el fantasma(Agente rojo) se encuentra en su escondite de donde saldrá para intentar capturar a la cantante.
+          <br>
+            <span class="image fit"><img src="images/Start.png" alt=""/></span>
+           <br>
+           El comportamiento del Vizconde no se ha modificado ya que es el que venía por defecto con la primera versión de la práctica. Los controles pueden verse en el apartado de <b>Controles</b> de esta página.
+           Al comienzo de la ejecución, la cantante está en el escenario actuando y de manera aleatoria se empezará a sentir mal y tendrá que retirarse a la sala que detrás del escenario. Aqui esperará a que el Vizconde venga a animarla a seguir actuando.
+
+           <BR>(GIF CANTANTE ASUSTANDOSE Y VIZCONDE DANDO APOYO)<br>
+            Este comportamiento está programado usando <b>Behavior Design</b> de la siguiente manera:
+            <span class="image fit"><img src="images/Behavior_Design_Cantante.PNG" alt=""/></span>
+            La parte izquierda de este árbol de comportamiento lo que hará será hacer un Set del destino al que tiene que ir la cantante por defecto (Escenario) y está el flag de <b>ASUSTADA</b> activo, se moverá detrás del escenario.
+            Este flag se cambia desde 2 sitios:
+            <ul>
+              <li>Se pone a <b>TRUE</b> en la parte derecha del árbol de comportamiento. En esta parte del árbol se lanza un random y si este está dentro del rango que le hemos dado, esta variable cambia su valor.</li>
+              <li>Desde código hacemos una comprobación de colisión entre la cantante y el Vizconde. Si estos chocan, la variable cambia su valor a <b>FALSE</b>.</li>
+              <code>
+                private void OnCollisionEnter(Collision collision){
+        if(collision.gameObject.tag == "Vizconde"){cantante.SetVariableValue("Asustada",false);}}
+              </code>
+            </ul>
           </p>
           
           <h3>Referencias</h3>
@@ -190,14 +210,12 @@
             <li>
               <a
                 href="https://opsive.com/assets/behavior-designer/"
-                >Behavior Designer</a
-              >
+                >Behavior Designer</a>
             </li>
             <li>
               <a
                 href="https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html"
-                >Búsquedas de Caminos</a
-              >
+                >Búsquedas de Caminos</a>
             </li>
             <li>
               <a
