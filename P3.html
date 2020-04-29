@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Inteligencia Artificial para Videojuegos.
+    </title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css"/></noscript>
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper" class="fade-in">
+      <!-- Intro -->
+      <div id="intro">
+        <h1>Inteligencia Artificial para Videojuegos</h1>
+        <p>
+          Página dedicada a albergar las prácticas del grupo 2 para la
+          asignatura de Inteligencia Artificial para Videojuegos de la UCM.
+          <br />
+          Pablo Gómez Calvo
+          <br />
+          Sergio Juan Higuera Velasco
+          <br />
+          Francisco Solano López Bleda De Castro
+          <br />
+          Andrés Puente Rodríguez
+        </p>
+      </div>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li ><a href="index.html">Práctica 1</a></li>
+
+          <li><a href="generic.html">Práctica 2</a></li>
+           
+          <li class="active"><a href="P3.html">Práctica 3</a></li>
+            <li><a href="elements.html">Chuleta</a></li>
+        </ul>
+        <ul class="icons">
+          <li>
+            <a
+              href="https://github.com/PabloGomezCalvo/Inteligencia-Artificial-en-Videojuegos"
+              class="icon brands fa-github"
+              ><span class="label">GitHub</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <!-- Featured Post -->
+        <article class="post featured">
+          <header class="major">
+            <h2>
+              Práctica 3:
+              <br />
+              El fantasma de la ópera
+            </h2>
+            <p>
+              En este apartado se explica el funcionamiento de la práctica junto
+              con algunas pruebas realizadas a lo largo del desarrollo y los
+              algoritmos usados. Junto con las decisiones tomadas para la
+              implementación de algoritmos.
+            </p>
+          </header>
+          <h3>Memoria técnica del prototipo</h3>
+          <p>
+           En esta práctica se ha planteado una de las novelas clásicas más conocida de la época actual, hablamos de el fantasma de la ópera.
+           Con esa idea y la de desarrollar más conocimientos en el uso de árboles de comportamiento, se ha propuesto hacer varios agentes inteligentes.
+           En concreto existen <b>3 tipos de agentes inteligentes y 1 controlado por el jugador</b> en esta práctica:
+           <ul>
+            <li><b>Público</b>:
+              <br>
+              El público es el agente más básico de todos ya que su único comportamiento es el de moverse de un punto a otro del mapa. Este punto está fijado desde el inicio y no cambia.
+              Además de esto, la zona del mapa donde se va a realizar ese desplazamiento no es cambiante por lo que la ruta de un punto a otro no requiere de demasiados cálculos.
+              <br>
+              Sin embargo el público es clave para el comportamiento del <b>Fantasma</b> ya que las deciones que este tome se verán afectadas si hay o no público en el patio de butacas.
+
+            </li>
+            <li><b>Cantante</b>:
+            <br>
+            La cantante es el personaje en el cual se va a basar gran parte del comportamiento del <b>Fantasma</b> ya que la misión principal de este es capturar a la cantante y llevarsela a una celda secreta que tiene preparada para ella.
+            Trabajar en la ópera mientras un <b>fantasma</b> quiere secuestrarte somete a la cantante a mucha presión y de manera aleatoria, la cantante se verá obligada a parar la obra e irse detrás del escenario por un ataque de ansiedad.
+            Este estado de angustia se le quitará siempre que su amante el <b>Vizconde</b> vaya hacia ella y la anime.
+          </li>
+          <li><b>Fantasma</b>:
+          <br>
+          El fantasma es el antagonista de esta historia ya que hará todo lo posible para capturar a la cantante y encerrarla en una celda donde solamente él pueda verla.
+          Para conseguir esto tendrá que deshacerse del público primero, la manera de hacerlo será cortando las cuerdas que sostienen 2 lámparas que se encuentran encima del patio de butacas. Al caer las lámparas, el público saldrá huyendo y podrá pasar por el escenario sin que nadie le vea.
+          Si nadie hace nada para impedirlo, el fantasma encerrará a la cantante con éxito pero el jugador podrá controlar al <b>Vizconde</b> para poder ponerle las cosas más difíciles.
+          </li>
+          <li>
+            <b>Vizconde</b>:
+            <br>
+            Este agente es controlado por el jugador y tiene como misión impedir que el fantasma capture y encierre a la cantante. Para esto tendrá que arreglar las lámparas cuando el fantasma las tire sobre el público, esto provocará que el público vuelva y que el fantasma no pueda pasar por el escenario.
+            Podrá encontrar la guarida del fantasma y estando alli, romper su piano y sus cuadros. Esto llamará la atención del fantasma que dejará de hacer todo lo que esté haciendo para ir a enfrentarse contigo.
+            Por último, si el fantasma consigue atrapar a la cantante, el jugador puede interceptar al fantasma y golpearlo para que suelte a la cantante o en caso de encontrar la celda donde la tiene retenida, puede desatarla para que esta vuelva al escenario.
+          </li>
+          </ul>
+          </p>
+          <h3>Interfaz de Usuario</h3>
+
+          <p>
+            BLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLA
+          </p>
+
+
+          <h3>Controles / Acciones</h3>
+          <p>
+            Para el movimiento del jugador se ha optado por 2 alternativas, además del resto de acciones que puede realizar el jugador si controla al Vizconde:
+          </p>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Acción</th>
+                  <th>Descripción</th>
+                  <th>Botón 1 / Acción 1</th>
+                  <th>Botón 2 / Acción 2</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Arriba</td>
+                  <td>Movimiento vertical hacia arriba.</td>
+                  <td>W</td>
+                  <td>Flecha Arriba</td>
+                </tr>
+                <tr>
+                  <td>Abajo</td>
+                  <td>Movimiento vertical hacia abajo.</td>
+                  <td>S</td>
+                  <td>Flecha Abajo</td>
+                </tr>
+                <tr>
+                  <td>Derecha</td>
+                  <td>Movimiento horizontal hacia derecha.</td>
+                  <td>D</td>
+                  <td>Flecha Derecha</td>
+                </tr>
+                <tr>
+                  <td>Izquierda</td>
+                  <td>Movimiento horizontal hacia izquierda.</td>
+                  <td>A</td>
+                  <td>Flecha Izquierda</td>
+                </tr>
+                <tr>
+                  <td>Arreglar lámparas</td>
+                  <td>Arreglas las lámparas para que el público vuelva a su sitio.</td>
+                  <td>Colisión con la lámpara.</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>Animar Cantante</td>
+                  <td>Animas a la cantante cuando esta se asusta y se va detrás del escenario.</td>
+                  <td>Colisión con la cantante.</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>Salvar Cantante</td>
+                  <td>Haces que la cantante vuelva al escenario.</td>
+                  <td>Colisionar con el fantasma mientras que este lleva a la cantante encima.</td>
+                  <td>Colisionar con la cantante cuando esta está en la sála de música.</td>
+                </tr>
+                <tr>
+                  <td>Montar en barca</td>
+                  <td>Te montas en la barca, lo que hace que cruces el río de un lado a otro.</td>
+                  <td>Colisionar con las barcas.</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Notas de la implementación.</h3>
+          <p>
+            HAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHA HAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHAHAHAAHAHA HAHAHAHAHAHA HAHAHAHAHAHAHA HAHAHAHAHAHAHA
+           
+          </p>
+          
+          <h3>Referencias</h3>
+          <ul>
+            <li>
+              <a
+                href="https://opsive.com/assets/behavior-designer/"
+                >Behavior Designer</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html"
+                >Búsquedas de Caminos</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://learn.unity.com/tutorial/unity-navmesh#5c7f8528edbc2a002053b498"
+                >Tutorial de configuración de NavMesh
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.StartCoroutine.html"
+                >MonoBehaviour.StartCoroutine
+              </a>
+            </li>
+            <li>
+              Millington, I.: Artificial Intelligence for Games. CRC Press, 3rd
+              Edition (2019)
+            </li>
+          </ul>
+          <ul class="actions special">
+            <li>
+              <a
+                href="https://we.tl/t-6YXcWIma72"
+                class="button icon solid fa-download"
+                >Descargar EXE</a
+              >
+            </li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- Copyright -->
+      <div id="copyright"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
