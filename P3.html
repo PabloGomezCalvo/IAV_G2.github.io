@@ -40,7 +40,9 @@
           <li><a href="generic.html">Práctica 2</a></li>
            
           <li class="active"><a href="P3.html">Práctica 3</a></li>
+             
             <li><a href="elements.html">Chuleta</a></li>
+            
         </ul>
         <ul class="icons">
           <li>
@@ -191,9 +193,9 @@
            Al comienzo de la ejecución, la cantante está en el escenario actuando y de manera aleatoria se empezará a sentir mal y tendrá que retirarse a la sala que detrás del escenario. Aqui esperará a que el Vizconde venga a animarla a seguir actuando.
 
            <BR>(GIF CANTANTE ASUSTANDOSE Y VIZCONDE DANDO APOYO)<br>
-            Este comportamiento está programado usando <b>Behavior Design</b> de la siguiente manera:
+            El comportamiento de la cantante está programado usando <b>Behavior Design</b> de la siguiente manera:
             <span class="image fit"><img src="images/Behavior_Design_Cantante.PNG" alt=""/></span>
-            La parte izquierda de este árbol de comportamiento lo que hará será hacer un Set del destino al que tiene que ir la cantante por defecto (Escenario) y está el flag de <b>ASUSTADA</b> activo, se moverá detrás del escenario.
+            La parte central de este árbol de comportamiento lo que hará será hacer un Set del destino al que tiene que ir la cantante por defecto (Escenario) y está el flag de <b>ASUSTADA</b> activo, se moverá detrás del escenario.
             Este flag se cambia desde 2 sitios:
             <ul>
               <li>Se pone a <b>TRUE</b> en la parte derecha del árbol de comportamiento. En esta parte del árbol se lanza un random y si este está dentro del rango que le hemos dado, esta variable cambia su valor.</li>
@@ -203,7 +205,58 @@
         if(collision.gameObject.tag == "Vizconde"){cantante.SetVariableValue("Asustada",false);}}
               </code>
             </ul>
+            Por otro lado, la parte de izquierda del árbol se utilizada para que todo este comportamiento solamente se realice si los FLAGS de "Capturada" y "Encerrada" tienen un valor negativo.  
+<p>
+  El fantasma es la parte más interesante de la práctica ya que es el que tiene una mayor carga a la hora de tomar decisiones. Para esto, se ha usado también <b>Behavior Tree</b> con algunas modificaciones en el código para la activación de FLAGS.
+  El árbol que describe el comportamiento del fantasma es el siguiente:
+
+  <span class="image fit"><img src="images/Behavior_Design_Fantasma.PNG" alt=""/></span>
+
+La parte de la izquierda del árbol es la parte con más prioridad, por eso la utilizamos para comprobar si el piano está arreglado. En caso de que el piano no esté arreglado, el fantasma deja todo lo que esté haciendo para ir corriendo a arreglar su preciado piano.
+En caso de que le pille llevando a la cantante a su celda, este la soltará para dirigirse corriendo a su sala de música.
+<br>
+La parte central del árbol es la que se utiliza cuando la cantante tiene que ser capturada dependiendo de si está cantando o está en bambalinas. Esa parte del árbol es donde se hace la toma de decisión para ver si hay público o no. En caso de que haya público, este irá a tirar las lámparas y posteriormente irá a capturar a la cantante.
+<br>
+Las últimas 2 ramas del árbol describen el comportamiento cuando la cantante ya ha sido capturada. La opción de la izquierda comprueba que efectivamente la tiene capturada y si es asi lleva a la cantante a su celda. El árbol de más a la derecha describe el comportamiento para cuando la cantante ya está encerrada y el fantasma puede dirigirse a su sala de música a componer hasta que el <b>Vizconde</b> le empiece a molestar con sus acciones sobre el escenario.
+</p>
+  <h3>Atajos de teclado para la realización de pruebas</h3>
+  <p>
+    Para la realización del testing de los diferentes apartados que componen la práctica, hemos optado por hacer una serie de atajos de teclado para que las pruebas puedan realizarse de una manera más rápida y poder evitar fallos como quedarnos atrapados en zonas del mapa por la falta de barca.
+    Estas teclas que hemos designado son:
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Acción</th>
+                    <th>Tecla asignada</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Cambiar estado de ambas lámparas.</td>
+                    <td>E</td>
+                  </tr>
+                  <tr>
+                    <td>Teletransporte al spawn del Vizconde</td>
+                    <td>R</td>
+                  </tr>
+                  <tr>
+                    <td>Teletransporte a la celda</td>
+                    <td>C</td>
+                  </tr>
+                  <tr>
+                    <td>Teletransporte al piano.</td>
+                    <td>T</td>
+                  </tr>
+                  <tr>
+                    <td>Cambiar cámara.</td>
+                    <td>Space</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </p>
+          
           
           <h3>Referencias</h3>
           <ul>
@@ -234,15 +287,7 @@
               Edition (2019)
             </li>
           </ul>
-          <ul class="actions special">
-            <li>
-              <a
-                href="https://we.tl/t-6YXcWIma72"
-                class="button icon solid fa-download"
-                >Descargar EXE</a
-              >
-            </li>
-          </ul>
+          
         </article>
       </div>
 
