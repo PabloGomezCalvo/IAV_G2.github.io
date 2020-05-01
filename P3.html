@@ -41,7 +41,6 @@
            
           <li class="active"><a href="P3.html">Práctica 3</a></li>
              
-            <li><a href="elements.html">Chuleta</a></li>
             
         </ul>
         <ul class="icons">
@@ -110,7 +109,11 @@
           <h3>Interfaz de Usuario</h3>
 
           <p>
-            BLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLABLA BLA BLA BLA BLA
+            Al principio de la ejecución aparecerá la cantante en el escenario, el Vizconde en uno de los palcos y el fantasma en su sala de música. Al ser una práctrica donde se va a hacer <b>DEBUG</b> pues hemos puesto en pantalla los parámetros por los que la IA va a regirse a la hora de tomar las deciones en sus respectivos <b>Behavior Trees</b>.
+            <br>Además de estos FLAGS, hemos puesto en la parte inferior izquierda unos atajos de teclado para agilizar las pruebas sobre los diferentes aspectos que se han tocado en esta práctica.
+            <br> Por últimos se han añadido 2 botones que sirven para salir de la aplicación para no tener que hacer Alt+F4 si estamos jugando desde un ejecutable y un botón para reiniciar el nivel y que todo vuelva a su estado inicial y todas las variables hagan reset.
+            <span class="image fit"><img src="images/Interfaz.PNG" alt=""/></span>
+
           </p>
 
 
@@ -178,6 +181,18 @@
                   <td>Colisionar con las barcas.</td>
                   <td>-</td>
                 </tr>
+                <tr>
+                  <td>Chocar con la celda</td>
+                  <td>Liberar a la cantante para que esta vuelva al escenario.</td>
+                  <td>Colisionar con la celda donde se encuentra la cantante encerrada.</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>Atacar al fantasma</td>
+                  <td>Cuando el fantasma lleva a la cantante puedes liberarla chocándote con el fantasma.</td>
+                  <td>Colisionar con el fantasma cuando este lleve a la cantante encima.</td>
+                  <td>-</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -192,7 +207,6 @@
            El comportamiento del Vizconde no se ha modificado ya que es el que venía por defecto con la primera versión de la práctica. Los controles pueden verse en el apartado de <b>Controles</b> de esta página.
            Al comienzo de la ejecución, la cantante está en el escenario actuando y de manera aleatoria se empezará a sentir mal y tendrá que retirarse a la sala que detrás del escenario. Aqui esperará a que el Vizconde venga a animarla a seguir actuando.
 
-           <BR>(GIF CANTANTE ASUSTANDOSE Y VIZCONDE DANDO APOYO)<br>
             El comportamiento de la cantante está programado usando <b>Behavior Design</b> de la siguiente manera:
             <span class="image fit"><img src="images/Behavior_Design_Cantante.PNG" alt=""/></span>
             La parte central de este árbol de comportamiento lo que hará será hacer un Set del destino al que tiene que ir la cantante por defecto (Escenario) y está el flag de <b>ASUSTADA</b> activo, se moverá detrás del escenario.
@@ -255,6 +269,21 @@ Las últimas 2 ramas del árbol describen el comportamiento cuando la cantante y
                 </tbody>
               </table>
             </div>
+          </p>
+          <h3>Fallos conocidos</h3>
+          <p>
+            Los fallos son algo que todas las inteligencias artificiales tienen. En este apartado vamos a numerar los fallos que nosotros mismos hemos encontrado y no hemos podido arreglar para esta entrega:
+<ul>
+  <li>
+    El agua es tratado dentro de la maya de navegación lo que provoca que si no barca, el fantasma camine sobre el agua y posteriormente coja la barca porque entra en colisión con ella.
+  </li>
+  <li>
+    Al llevar a la cantante y romper el piano mientras que el fantasma va por la barca, la cantante cae al vacío ya que durante la fase de la barca se desactivan todos los movimientos del fantasma.
+  </li>
+  <li>
+    La cantante en ocaciones desaparece cuando el fantasma la captura, va como en sus pies y puede quedarse enganchada.
+  </li>
+</ul>
           </p>
           
           
